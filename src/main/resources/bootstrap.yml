@@ -2,10 +2,10 @@ logging:
   level:
     root: info
 server:
-  port: <PORT>
+  port: ${port}
 spring:
   application:
-    name: ARTIFACT_ID
+    name: ${artifactId}
   cloud:
     inetutils:
       preferredNetworks: [ '192.168' ]

@@ -17,9 +17,6 @@
       <!--默认的包名-->
       <defaultValue>org.wf2311.appname</defaultValue>
     </requiredProperty>
-    <requiredProperty key="application">
-      <defaultValue>APPNAME</defaultValue>
-    </requiredProperty>
   </requiredProperties>
 
   <fileSets>

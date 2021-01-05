@@ -1,0 +1,19 @@
+stages:  #这是 Gitlab CI 中的概念，Stages 表示构建阶段，就是一些按序执行的流程，具体执行是依赖于 Jobs 的
+  - mvn archetype
+  - maven deploy
+maven-archetype:  #定义的 Jobs 之一，用于构建 jar 包。script 为具体执行的脚本
+  stage: mvn archetype
+  tags:
+    - lib-001
+  script:
+    - mvn clean archetype:create-from-project
+maven-deploy:
+  stage: mvn deploy
+  tags:
+    - lib-001
+  script:
+    - cd target/generated-sources/archetype/
+    - sed -i "s/APPNAME/\$\{artifactId\}/g" src/main/resources/archetype-resources/src/main/resources/bootstrap.yml
+    - sed -i "s/APPNAME/\$\{artifactId\}/g" src/main/resources/archetype-resources/.gitlab-ci-template.yml
+    - mv -f src/main/resources/archetype-resources/.gitlab-ci-template.yml src/main/resources/archetype-resources/.gitlab-ci.yml
+    - mvn clean deploy

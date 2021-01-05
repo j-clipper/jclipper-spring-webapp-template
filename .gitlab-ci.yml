@@ -6,7 +6,7 @@ maven-archetype:  #定义的 Jobs 之一，用于构建 jar 包。script 为具�
     - lib-001
   script:
     - mvn clean archetype:create-from-project -Darchetype.properties=archetype.properties
-    - cp .gitignore target/generated-sources/archetype/src/main/resources/archetype-resources/
+#    - cp .gitignore target/generated-sources/archetype/src/main/resources/archetype-resources/
     - cd target/generated-sources/archetype/
     - mv -f src/main/resources/archetype-resources/.gitlab-ci-template.yml src/main/resources/archetype-resources/.gitlab-ci.yml
     - mvn archetype:crawl

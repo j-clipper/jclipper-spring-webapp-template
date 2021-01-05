@@ -2,7 +2,7 @@ logging:
   level:
     root: info
 server:
-  port: 5510
+  port: <PORT>
 spring:
   application:
     name: ARTIFACT_ID

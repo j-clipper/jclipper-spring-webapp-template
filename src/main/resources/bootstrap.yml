@@ -5,7 +5,7 @@ server:
   port: 5510
 spring:
   application:
-    name: APPNAME
+    name: ARTIFACT_ID
   cloud:
     inetutils:
       preferredNetworks: [ '192.168' ]

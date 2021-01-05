@@ -11,7 +11,7 @@
     </requiredProperty>
     <requiredProperty key="artifactId">
       <!--默认的artifactId-->
-      <defaultValue>app-name</defaultValue>
+      <defaultValue>ARTIFACT_ID</defaultValue>
     </requiredProperty>
     <requiredProperty key="package">
       <!--默认的包名-->

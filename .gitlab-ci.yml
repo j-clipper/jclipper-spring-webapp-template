@@ -1,6 +1,6 @@
 stages:  #这是 Gitlab CI 中的概念，Stages 表示构建阶段，就是一些按序执行的流程，具体执行是依赖于 Jobs 的
   - mvn archetype
-  - maven deploy
+  - mvn deploy
 maven-archetype:  #定义的 Jobs 之一，用于构建 jar 包。script 为具体执行的脚本
   stage: mvn archetype
   tags:

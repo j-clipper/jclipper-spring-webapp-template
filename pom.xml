@@ -4,14 +4,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.wf2311.lib</groupId>
-    <artifactId>spring-app-template</artifactId>
-
     <parent>
         <groupId>com.wf2311</groupId>
         <artifactId>common-lib-parent</artifactId>
         <version>2021.04-SNAPSHOT</version>
     </parent>
+
+    <groupId>com.wf2311.lib</groupId>
+    <artifactId>spring-app-template</artifactId>
+    <version>${parent.version}</version>
+
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -30,27 +32,10 @@
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>nacos-client</artifactId>
-                    <groupId>com.alibaba.nacos</groupId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>nacos-client</artifactId>
-                    <groupId>com.alibaba.nacos</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba.nacos</groupId>
-            <artifactId>nacos-client</artifactId>
-            <version>2.0.0</version>
         </dependency>
 
         <dependency>

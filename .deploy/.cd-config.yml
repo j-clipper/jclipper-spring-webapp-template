@@ -1,0 +1,7 @@
+variables:
+  # 登录项目启动的所在机器的用户
+  SERVER_USER: 'root'
+  # 项目启动的所在机器IP
+  SERVER_IP: 'java.wf'
+  # 项目启动脚本
+  DEPLOY_SHELL_URL: 'http://git.wf2311.com/wf2311/shells/-/raw/main/cicd/start-java-docker.sh'

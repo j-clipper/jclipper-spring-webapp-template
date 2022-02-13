@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jclipper-spring-webapp-template
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jclipper-spring-webapp-template
+  template:
+    metadata:
+      labels:
+        app: jclipper-spring-webapp-template
+    spec:
+      containers:
+        - env:
+            - name: SERVER_PORT
+              value: '<PORT>'
+            - name: JVM_OPTS
+              value: ENV_JVM_OPTS
+          name: jclipper-spring-webapp-template
+          image: FULL_IMAGE
+          imagePullPolicy: Always
+          ports:
+            - containerPort: <PORT>
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jclipper-spring-webapp-template
+  namespace: backend
+spec:
+  ports:
+    - port: <PORT>
+      targetPort: <PORT>
+      name: jclipper-spring-webapp-template
+  selector:
+    app: jclipper-spring-webapp-template
+  type: LoadBalancer

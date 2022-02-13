@@ -1,0 +1,11 @@
+.deploy:
+  variables:
+    DOCKER_RUN_ENV: '-e SERVER_PORT=$SERVER_PORT'
+  script:
+    - touch .env
+    - echo "deploy.env=$ENV_NAME" > .env
+    - echo "SERVER_PORT=$SERVER_PORT" > .env
+    - echo "JAVA_OPTS=$JAVA_OPTS" >> .env
+    - ssh $SERVER_USER@$SERVER_IP "[ -d /home/apps/docker/$APP_NAME ] && echo ok || mkdir -p /home/apps/docker/$APP_NAME"
+    - scp -r .env $SERVER_USER@$SERVER_IP:/home/apps/docker/$APP_NAME/.env
+    - ssh $SERVER_USER@$SERVER_IP -o StrictHostKeyChecking=no "cd /home/apps/docker/$APP_NAME;wget -O start.sh $DEPLOY_SHELL_URL; chmod -R 777 start.sh;./start.sh  -n $APP_NAME -r $REGISTRY_HOST -i $REGISTRY_IMAGE -u $REGISTRY_USER -p $REGISTRY_PASSWORD -P $SERVER_PORT"

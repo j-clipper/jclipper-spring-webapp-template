@@ -1,0 +1,56 @@
+server:
+  port: <PORT>
+spring:
+  application:
+    name: jclipper-spring-webapp-template
+  cloud:
+    inetutils:
+      preferredNetworks: [ '192.168' ]
+    nacos:
+      config:
+        server-addr: 192.168.40.56:8848 #nacos注册中心地址
+        namespace: public
+        group: ${spring.application.name} #分组ID，这里使用spring.application.name的值
+        file-extension: properties
+        refresh-enabled: true
+        shared-configs:
+          - data-id: config.properties # 通用配置
+            group: ${spring.cloud.nacos.config.group}
+            refresh: true
+          - data-id: cache.properties # 缓存配置
+            group: ${spring.cloud.nacos.config.group}
+            refresh: false
+          - data-id: mq.properties # MQ配置
+            group: ${spring.cloud.nacos.config.group}
+            refresh: false
+          - data-id: db.properties # 数据库配置
+            group: ${spring.cloud.nacos.config.group}
+            refresh: false
+          - data-id: log4j2-spring.xml # log4j2配置
+            group: ${spring.cloud.nacos.config.group}
+            refresh: true
+      discovery:
+        server-addr: ${spring.cloud.nacos.config.server-addr}
+        service: ${spring.application.name}
+        namespace: ${spring.cloud.nacos.config.namespace}
+logging:
+  config: classpath:log4j2-spring.xml
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "prometheus"
+          - "health"
+        exclude:
+          - "solr"
+          - "elasticsearch"
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
+jclipper:
+  swagger:
+    enable: true
+    base-package: com.wf2311.jclipper.spring.webapp

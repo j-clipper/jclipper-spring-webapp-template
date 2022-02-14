@@ -3,7 +3,7 @@ stages:  #这是 Gitlab CI 中的概念，Stages 表示构建阶段，就是一�
 maven-archetype:  #定义的 Jobs 之一，用于构建 jar 包。script 为具体执行的脚本
   stage: mvn archetype
   tags:
-    - lib-001
+    - jclipper
   script:
     - mvn clean archetype:create-from-project -Darchetype.properties=archetype.properties
     - cd target/generated-sources/archetype/

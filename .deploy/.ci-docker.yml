@@ -1,0 +1,12 @@
+.docker:
+  variables:
+    # 项目打包上传的docker仓库地址
+    REGISTRY_HOST: 'harbor.wf:5010'
+    # 远程docker仓库登录用户名
+    REGISTRY_USER: 'admin'
+    # 远程docker仓库登录密码
+    REGISTRY_PASSWORD: 'pwd123'
+  script:
+    - docker login $REGISTRY_HOST -u$REGISTRY_USER -p$REGISTRY_PASSWORD
+    - docker build --build-arg APP_NAME=$APP_NAME -t $REGISTRY_HOST/$REGISTRY_IMAGE .
+    - docker push $REGISTRY_HOST/$REGISTRY_IMAGE

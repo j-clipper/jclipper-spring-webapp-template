@@ -9,6 +9,7 @@
 ├── Dockerfile  # Dockerfile
 ├── README.md   # README
 ├── .gitignore  # gitignore
+├── .deploy     # cicd配置脚本目录
 ├── bin
 │   ├── docker-build.sh   # docker镜像构建脚本
 │   └── docker-startup.sh # 服务在docker容器内启动脚本
@@ -207,3 +208,4 @@ mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate -B -DarchetypeG
     -Dpackage=com.wf2311.jclipper.webapp.user -Dapplication=UserSpringBootApplication ^
     -Dport=9000
 ```
+> 如果要创建单模块项目，将`-DarchetypeVersion=2022.1-SNAPSHOT`替换为`-DarchetypeVersion=2022.1-single-module-SNAPSHOT`

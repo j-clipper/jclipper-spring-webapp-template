@@ -4,7 +4,7 @@ variables:
   # project name, developer define
   APP_NAME: 'jclipper-spring-webapp-template'
   # Jar/War path, developer define
-  TARGET_PATH: '${APP_NAME}-webapp/target/*.jar'
+  TARGET_PATH: 'target/*.jar'
   # jvm args, developer define
   JVM_OPTS_DEV: '-Xmx512m -Xms512m -Xss512k -Dspring.cloud.nacos.config.namespace=public -Dspring.cloud.nacos.config.server-addr=127.0.0.1:8848'
   JVM_OPTS_TEST1: '-Xmx512m -Xms512m -Xss512k -Dspring.cloud.nacos.config.namespace=public -Dspring.cloud.nacos.config.server-addr=192.168.21.2:8848'

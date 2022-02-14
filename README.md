@@ -188,6 +188,7 @@ SpringBootApplication=UserSpringBootApplication,SERVER_PORT=9000 的项目，则
 ```shell
 mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate -B -DarchetypeGroupId=com.wf2311.jclipper.webapp \
     -DarchetypeArtifactId=jclipper-spring-webapp-template-archetype -DarchetypeVersion=2022.1-SNAPSHOT \
+    -DarchetypeCatalog=https://oss.sonatype.org/content/repositories/snapshots/archetype-catalog.xml \
     -DgroupId=com.wf2311.jclipper.webapp \
     -DartifactId=jclipper-user \
     -Dversion=1.0-SNAPSHOT \
@@ -199,6 +200,7 @@ mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate -B -DarchetypeG
 ```shell
 mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate -B -DarchetypeGroupId=com.wf2311.jclipper.webapp ^
     -DarchetypeArtifactId=jclipper-spring-webapp-template-archetype -DarchetypeVersion=2022.1-SNAPSHOT ^
+    -DarchetypeCatalog=https://oss.sonatype.org/content/repositories/snapshots/archetype-catalog.xml ^
     -DgroupId=com.wf2311.jclipper.webapp ^
     -DartifactId=jclipper-user ^
     -Dversion=1.0-SNAPSHOT ^

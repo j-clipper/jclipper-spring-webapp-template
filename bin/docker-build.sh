@@ -6,9 +6,6 @@ APP_NAME='jclipper-spring-webapp-template'
 SERVER_PORT='<PORT>'
 #项目启动需要附加的jvm参数
 JVM_OPTS='-Xmx256m -Xms128m -Xss512k'
-#项目启动需要附加的指定的javaagent，例如：
-#JVM_AGENT: '-javaagent:/application/lib/agent/skywalking-agent.jar -Dskywalking.agent.namespace=test -Dskywalking.agent.service_name=jclipper-spring-webapp-template'
-JVM_AGENT=''
 #项目打包上传的docker仓库地址
 REGISTRY_HOST='harbor.wf2311.com'
 #项目打包的镜分组
